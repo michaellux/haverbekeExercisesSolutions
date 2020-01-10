@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Шахматная доска</title>
+</head>
+
+<body>
+    <script>
+
+        //Пришлось воспользовался советом в конце книги
+
+        let string = "";
+        const sharpSign = "#";
+        const space = " ";
+        
+        let size = prompt("Укажите размеры шахматной доски", 8);
+
+        for (let numberofRow = 1; numberofRow <= size; numberofRow++) {
+
+            for (let numberofCol = 1; numberofCol <= size; numberofCol++) {
+                if ((numberofRow % 2 != 0 && numberofCol % 2 == 0) || (numberofRow % 2 == 0 && numberofCol % 2 != 0)) {
+                    string = string + sharpSign;
+                }
+                else {
+                    string = string + space;
+                }
+            }
+            console.log(string + "\n");
+            string = "";
+        }
+
+        /*Решение
+        let size = 8;
+
+        let board = "";
+
+        for (let y = 0; y < size; y++) {
+        for (let x = 0; x < size; x++) {
+            if ((x + y) % 2 == 0) {
+            board += " ";
+            } else {
+            board += "#";
+            }
+        }
+        board += "\n";
+        }
+
+        console.log(board);
+        */
+    </script>
+</body>
+
+</html>
