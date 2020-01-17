@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Рекурсия</title>
+  </head>
+  <body>
+    <script>
+        function isEven(value) {
+            
+            if(value == 0) 
+            {
+                return true;
+            }
+            else if(value == 1){
+                return false;
+            }
+            else {
+                if(value > 0) return isEven(value - 2);
+                else return isEven(value + 2);
+            }
+        }
+
+        alert(isEven(50));
+        alert(isEven(75));
+        alert(isEven(-1));
+
+        /* Решение
+
+        Немного "недокрутил". Обратился к советам в конце книги.
+
+        function isEven(n) {
+            if (n == 0) return true;
+            else if (n == 1) return false;
+            else if (n < 0) return isEven(-n);
+            else return isEven(n - 2);
+        }
+        */
+    </script>
+  </body>
+</html>
