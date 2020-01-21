@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Глубокое сравнение</title>
+  </head>
+  <body>
+    <script>
+      function deepEqual(firstValue, secondValue) {
+        if (typeof firstValue == "object" && typeof secondValue == "object" && firstValue != null && secondValue != null) {
+
+          let firstArrayProps = Object.keys(firstValue);
+          let secondArrayProps = Object.keys(secondValue);
+
+          if (firstArrayProps.length == secondArrayProps.length) {
+            for (let index = 0; index < firstArrayProps.length; index++) {
+                if(firstArrayProps[index] == secondArrayProps[index])
+                {
+                    continue;
+                }
+                else {
+                    return false;
+                }
+            }
+            return true;
+          } else {
+            return false;
+          }
+        }
+        else if (firstValue === secondValue) {
+            return true;
+          } else {
+            return false;
+        }
+        }
+
+      
+
+      let obj = { here: { is: "an" }, object: 2 };
+      console.log(deepEqual(obj, obj));
+      // → true
+      console.log(deepEqual(obj, { here: 1, object: 2 }));
+      // → false
+      console.log(deepEqual(obj, { here: { is: "an" }, object: 2 }));
+      // → true
+    </script>
+  </body>
+</html>
