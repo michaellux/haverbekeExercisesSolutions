@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Сумма диапазона</title>
+  </head>
+  <body>
+    <script>
+      function sum(arr) {
+        let sum = 0;
+
+        arr.forEach(element => {
+          sum += element;
+        });
+
+        return sum;
+      }
+
+      function range(start, end, step = 1) {
+        let arrayNumberElements = [];
+        let currentValue = start;
+
+        if (step > 0) {
+          do {
+            arrayNumberElements.push(currentValue);
+            currentValue += step;
+          } while (currentValue <= end);
+        } else if (step < 0) {
+          do {
+            arrayNumberElements.push(currentValue);
+            currentValue += step;
+          } while (currentValue >= end);
+        }
+
+        return arrayNumberElements;
+      }
+
+      console.log(range(1, 10));
+      // → [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+      console.log(range(5, 2, -1));
+      // → [5, 4, 3, 2]
+      console.log(sum(range(1, 10)));
+      // → 55
+
+      /* Решение
+
+      function range(start, end, step = start < end ? 1 : -1) {
+        let array = [];
+
+        if (step > 0) {
+          for (let i = start; i <= end; i += step) array.push(i);
+        } else {
+          for (let i = start; i >= end; i += step) array.push(i);
+        }
+        return array;
+      }
+
+      function sum(array) {
+        let total = 0;
+        for (let value of array) {
+          total += value;
+        }
+        return total;
+      }
+
+      */
+    </script>
+  </body>
+</html>
