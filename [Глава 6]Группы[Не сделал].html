@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Группы</title>
+  </head>
+  <body>
+    <script>
+      class Group {
+        constructor() {
+          this.arr = [];
+        }
+
+        static from(iterObj) {
+          let group = new Group();
+
+          iterObj.forEach((element) => {
+            console.log(element);
+            group.add(element);
+          });
+
+          return group;
+        }
+
+        add(value) {
+          this.arr.push(value);
+        }
+
+        delete(value) {
+          this.arr = this.arr.filter((elem) => {
+            return elem !== value;
+          });
+        }
+
+        has(value) {
+          this.arr.forEach((elem) => {
+            if (elem === value) {
+              return true;
+            }
+          });
+
+          return false;
+        }
+      }
+
+      let group = Group.from([10, 20]);
+      console.log(group.has(10));
+      // → true
+      console.log(group.has(30));
+      // → false
+      group.add(10);
+      group.delete(10);
+      console.log(group.has(10));
+      // → false
+    </script>
+  </body>
+</html>
